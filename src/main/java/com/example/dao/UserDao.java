@@ -2,7 +2,7 @@ package com.example.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.example.model.User;
-import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,17 +18,17 @@ public class UserDao {
     public List<User> queryAll(){
         String sql = "select * from users";
         List<User> listAllUser = new ArrayList<User>();
-        jdbcTemplate.query(sql, new RowCallbackHandler() {
+        listAllUser = jdbcTemplate.query(sql, new RowMapper<User>() {
             @Override
-            public void processRow(ResultSet resultSet) throws SQLException {
-                User u=new User();
-                u.setId(resultSet.getString(1));
-                u.setEmail(resultSet.getString(2));
-                u.setPassword(resultSet.getString(3));
-                u.setPhone(resultSet.getString(4));
-                u.setCreate_at(resultSet.getString(5));
-                u.setNickname(resultSet.getString(6));
-                listAllUser.add(u);
+            public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                User user = new User();
+                user.setId(resultSet.getString("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setNickname(resultSet.getString("nickname"));
+                user.setPhone(resultSet.getString("phoneno"));
+                user.setCreate_at(resultSet.getString("create_at"));
+                return user;
             }
         });
         return listAllUser;
