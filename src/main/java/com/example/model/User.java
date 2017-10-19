@@ -8,10 +8,6 @@ public class User {
     private String create_at;
     private String nickname;
 
-    public User(){
-
-    }
-
     public String getId() {
         return id;
     }
