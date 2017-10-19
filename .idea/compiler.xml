@@ -9,8 +9,8 @@
         <module name="mavenspringmvc" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="mavenspringmvc" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="mavenspringmvc" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

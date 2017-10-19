@@ -6,21 +6,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.example.controller">
+    <context:component-scan base-package="com.example">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
+
+    <context:component-scan base-package="com.example"/>
 
     <!-- 静态资源Mapping -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/static/css/"/>
     <mvc:resources mapping="/js/**" location="/WEB-INF/static/js/"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/static/images/"/>
 
+    <!-- mvc注解-->
     <mvc:annotation-driven/>
 
     <!-- 视图解析器 -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/views"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
