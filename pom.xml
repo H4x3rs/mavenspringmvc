@@ -215,8 +215,7 @@
           <findbugsXmlOutput>true</findbugsXmlOutput>
           <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
           <xmlOutput>true</xmlOutput>
-          <findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
-          <includeFilter>${session.executionRootDirectory}/findbugs-security-include.xml}</includeFilter>
+          <includeFilter>findbugs-security-include.xml</includeFilter>
           <plugins>
             <plugin>
               <groupId>com.h3xstream.findsecbugs</groupId>

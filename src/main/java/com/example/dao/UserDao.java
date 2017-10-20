@@ -39,7 +39,7 @@ public class UserDao {
     }
 
     //匿名内部类
-    public class UserRowMapper implements RowMapper<User>{
+    public static class UserRowMapper implements RowMapper<User>{
         @Override
         public User mapRow(ResultSet resultSet, int rowNum) throws SQLException{
             User user = new User();
