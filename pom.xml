@@ -203,6 +203,46 @@
           <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
         </configuration>
       </plugin>
+
+      <!--FindBugs Static Analysis -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <error>Max</error>
+          <threshold>Low</threshold>
+          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+          <xmlOutput>true</xmlOutput>
+          <findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
+          <includeFilter>${session.executionRootDirectory}/findbugs-security-include.xml}</includeFilter>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>LATEST</version>
+            </plugin>
+          </plugins>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <xmlOutput>true</xmlOutput>
+          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>
