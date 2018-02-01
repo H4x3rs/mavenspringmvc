@@ -230,7 +230,7 @@
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>3.0.4</version>
         <configuration>
-          <!--<threshold>Low</threshold>-->
+          <threshold>Low</threshold>
           <effort>default</effort>
           <findbugsXmlOutput>true</findbugsXmlOutput>
           <includeFilterFile>findbugs-security-include.xml</includeFilterFile>
