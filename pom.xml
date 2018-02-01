@@ -231,7 +231,8 @@
         <version>3.0.4</version>
         <configuration>
           <threshold>Low</threshold>
-          <effort>default</effort>
+          <effort>Max</effort>
+          <failOnError>true</failOnError>
           <findbugsXmlOutput>true</findbugsXmlOutput>
           <includeFilterFile>findbugs-security-include.xml</includeFilterFile>
           <excludeFilterFile>findbugs-security-exclude.xml</excludeFilterFile>
