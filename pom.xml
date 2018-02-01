@@ -18,6 +18,7 @@
       <id>quanmincai</id>
       <name>Ruyicai Repository</name>
       <url>http://service.qmcai.com/nexus/content/repositories/public/</url>
+
     </repository>
     <repository>
       <id>JBoss Repo</id>
