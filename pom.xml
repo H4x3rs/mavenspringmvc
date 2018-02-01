@@ -13,6 +13,25 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>quanmincai</id>
+      <name>Ruyicai Repository</name>
+      <url>http://service.qmcai.com/nexus/content/repositories/public/</url>
+    </repository>
+    <repository>
+      <id>JBoss Repo</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+      <name>JBoss Repo</name>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>quanmincai</id>
+      <name>Ruyicai Repository</name>
+      <url>http://service.qmcai.com/nexus/content/repositories/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -210,12 +229,11 @@
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>3.0.1</version>
         <configuration>
-          <error>Max</error>
           <threshold>Low</threshold>
+          <effort>default</effort>
           <findbugsXmlOutput>true</findbugsXmlOutput>
-          <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-          <xmlOutput>true</xmlOutput>
-          <includeFilter>findbugs-security-include.xml</includeFilter>
+          <includeFilterFile>findbugs-security-include.xml</includeFilterFile>
+          <excludeFilterFile>findbugs-security-exclude.xml</excludeFilterFile>
           <plugins>
             <plugin>
               <groupId>com.h3xstream.findsecbugs</groupId>
@@ -234,11 +252,12 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.4</version>
         <configuration>
-          <xmlOutput>true</xmlOutput>
+          <threshold>low</threshold>
+          <effort>default</effort>
           <findbugsXmlOutput>true</findbugsXmlOutput>
-          <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+          <findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
         </configuration>
       </plugin>
     </plugins>

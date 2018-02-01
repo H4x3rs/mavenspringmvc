@@ -9,14 +9,12 @@
     <context:component-scan base-package="com.example"/>
 
     <!--数据库配置 class="com.mchange.v2.c3p0.ComboPooledDataSource"-->
-    <!--<context:property-placeholder location="classpath:config.properties"/>-->
+    <context:property-placeholder location="classpath:config.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://47.91.230.186:3306/blog"/>
-        <property name="user" value="ghost"/>
-        <property name="password">
-            <value><![CDATA[vhadnRG3$a<aasdfjDF]]></value>
-        </property>
+        <property name="driverClass" value="${driver}"/>
+        <property name="jdbcUrl" value="${uri}"/>
+        <property name="user" value="${user}"/>
+        <property name="password" value="${password}"></property>
         <property name="checkoutTimeout" value="30000" />
         <property name="idleConnectionTestPeriod" value="30" />
         <!-- 连接池初始化连接数 -->
